@@ -28,7 +28,9 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
+.getCards:disabled {
+  background-color: #ff0000;
+}
 .playingCards {
   display: flex; justify-content: center;
   margin-top: 40px;
