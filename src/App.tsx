@@ -24,8 +24,8 @@ const App: React.FC = () => {
 
     return (
         <div>
-            <p>Card count: {cardCount}</p>
-            <button onClick={dealCards} disabled={cardCount === 0}>Get Cards</button>
+            <p className="cardCount">Card count: {cardCount}</p>
+            <button className="getCards" onClick={dealCards} disabled={cardCount === 0}>Get Cards</button>
             {hand.length > 0 && (
                 <div className="playingCards faceImages">
                     {hand.map((card, index) => (
