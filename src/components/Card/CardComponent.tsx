@@ -1,4 +1,3 @@
-// CardComponent.tsx
 import React from 'react';
 
 interface CardProps {
@@ -18,7 +17,7 @@ const CardComponent: React.FC<CardProps> = ({ rank, suit }) => {
     };
 
     return (
-        <span className={`card rank-${rank} ${suit}`}>
+        <span className={`card rank-${rank.toLowerCase()} ${suit}`}>
       <span className="rank">{rank}</span>
       <span className="suit">{getSuitSymbol(suit)}</span>
     </span>

@@ -1,12 +1,42 @@
-import './App.css'
-import Card from "./components/Card/CardComponent.tsx";
+import React, { useState } from 'react';
+import CardComponent from "./components/Card/CardComponent";
+import CardDeck from './lib/CardDeck';
+import Card from './lib/Card';
 
-const App = () => (
-    <div className="playingCards faceImages">
-        <Card rank="K" suit="diams" />
-        <Card rank="A" suit="hearts" />
-    </div>
-)
-;
+const App: React.FC = () => {
+    const [deck] = useState(new CardDeck());
+    const [hand, setHand] = useState<Card[]>([]);
+    const [cardCount, setCardCount] = useState(deck.cards.length);
 
-export default App
+    const dealCards = () => {
+        if (cardCount >= 5) {
+            const cardsToDeal = deck.getCards(5);
+            setHand(cardsToDeal);
+            setCardCount(cardCount - cardsToDeal.length);
+        } else if (cardCount > 0) {
+            const cardsToDeal = deck.getCards(cardCount);
+            setHand(cardsToDeal);
+            setCardCount(0);
+        } else {
+            console.log('Карты закончились');
+        }
+    };
+
+    return (
+        <div>
+            <p>Card count: {cardCount}</p>
+            <button onClick={dealCards} disabled={cardCount === 0}>Get Cards</button>
+            {hand.length > 0 && (
+                <div className="playingCards faceImages">
+                    {hand.map((card, index) => (
+                        <div key={index}>
+                            <CardComponent rank={card.rank} suit={card.suit} />
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default App;
