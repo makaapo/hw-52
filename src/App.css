@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.cardCount {
+.cardInfo {
   font-size: 24px;
   color: #666666;
 }
@@ -21,16 +21,35 @@
   box-shadow: 0 9px #999;
 }
 
-.getCards:hover {background-color: #3e8e41}
+.getCards:hover {
+  background-color: #3e8e41;
+}
 
 .getCards:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
 .getCards:disabled {
   background-color: #ff0000;
+  margin-right: 10px;
 }
+
+.resetDeck {
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.resetDeck:hover {
+  background-color: #3e8e41;
+}
+
 .playingCards {
   display: flex; justify-content: center;
   margin-top: 40px;
